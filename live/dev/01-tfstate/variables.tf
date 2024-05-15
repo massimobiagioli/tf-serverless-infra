@@ -1,11 +1,11 @@
-variable "service_name" {
+variable "app_name" {
   type        = string
-  description = "Name of the service"
+  description = "Application name"
 }
 
 variable "stage" {
   type        = string
-  description = "Stage of the service (dev, staging, prod)"
+  description = "Stage name (dev, staging, prod)"
 }
 
 variable "aws_params" {

@@ -1,4 +1,4 @@
-service_name = "tester"
+app_name     = "tester"
 stage        = "dev"
 
 aws_params = {
