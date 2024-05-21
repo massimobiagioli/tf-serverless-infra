@@ -69,6 +69,16 @@ data "aws_iam_policy_document" "codebuild_assume_role" {
 data "aws_iam_policy_document" "codebuild_policy" {
   statement {
     effect = "Allow"
+
+    actions = [
+      "ssm:GetParameter"
+    ]
+
+    resources = ["*"]
+  }
+  
+  statement {
+    effect = "Allow"
     actions = [
       "logs:CreateLogGroup",
       "logs:CreateLogStream",
@@ -91,8 +101,8 @@ data "aws_iam_policy_document" "codebuild_policy" {
       "s3:GetBucketLocation"
     ]
     resources = [
-      aws_s3_bucket.codepipeline_bucket[each.value.name].arn,
-      "${aws_s3_bucket.codepipeline_bucket[each.value.name].arn}/*"
+      aws_s3_bucket.codepipeline_bucket.arn,
+      "${aws_s3_bucket.codepipeline_bucket.arn}/*"
     ]
   }
 }
@@ -124,26 +134,6 @@ data "aws_iam_policy_document" "codedeploy_policy" {
     ]
 
     resources = ["*"]
-    condition {
-      test     = "StringEquals"
-      variable = "aws:ResourceTag/Module"
-      values   = ["${each.value.name}"]
-    }
-  }
-
-  statement {
-    effect = "Allow"
-
-    actions = [
-      "ssm:GetParameter"
-    ]
-
-    resources = ["*"]
-    # condition {
-    #   test     = "StringEquals"
-    #   variable = "aws:ResourceTag/Module"
-    #   values   = each.value.shared_resources
-    # }
   }
 
   statement {
@@ -187,6 +177,16 @@ data "aws_iam_policy_document" "codedeploy_policy" {
       "iam:CreateServiceLinkedRole"
     ]
     resources = ["*"]
+  }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "iam:PassRole"
+    ]
+    resources = [
+      "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/*"
+    ]
   }
 }
 

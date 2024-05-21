@@ -1,9 +1,9 @@
 resource "aws_codebuild_project" "build" {
-  name           = "${local.pipeline_name}-step-build"
+  name           = "${local.pipeline_name}-build"
   description    = "build"
   build_timeout  = "15"
   queued_timeout = "10"
-  service_role   = aws_iam_role.codebuild_common_role.arn
+  service_role   = aws_iam_role.codebuild_role.arn
 
   artifacts {
     type = "CODEPIPELINE"

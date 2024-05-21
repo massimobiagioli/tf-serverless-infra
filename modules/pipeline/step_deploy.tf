@@ -1,5 +1,5 @@
 resource "aws_codebuild_project" "deploy" {
-  name           = "${local.pipeline_name}-step-deploy"
+  name           = "${local.pipeline_name}-deploy"
   description    = "serverless deploy"
   build_timeout  = "15"
   queued_timeout = "10"

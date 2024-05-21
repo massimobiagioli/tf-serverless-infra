@@ -48,13 +48,12 @@ resource "aws_codepipeline" "codepipeline" {
     name = "Deploy"
 
     action {
-      name             = "Deploy"
-      category         = "Build"
-      owner            = "AWS"
-      provider         = "CodeBuild"
-      input_artifacts  = ["build_output"]
-      output_artifacts = ["deploy_output"]
-      version          = "1"
+      name            = "Deploy"
+      category        = "Build"
+      owner           = "AWS"
+      provider        = "CodeBuild"
+      input_artifacts = ["source_output"]
+      version         = 1
 
       configuration = {
         ProjectName = "${local.pipeline_name}-deploy"
