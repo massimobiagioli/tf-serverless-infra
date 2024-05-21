@@ -15,7 +15,8 @@ phases:
       - source .aws.ssm.local
   build:
     commands:
-      - echo "Build ..."
+      - echo "Launch tests..."
+      - make test
   post_build:
     commands:
       - echo "Build completed on `date`"
