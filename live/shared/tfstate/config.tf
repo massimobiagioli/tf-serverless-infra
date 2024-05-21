@@ -15,7 +15,7 @@ terraform {
 
   # backend "s3" {
   #   bucket         = "tester-dev-tfstate"
-  #   key            = "dev/tfstate/terraform.tfstate"
+  #   key            = "shared/tfstate/terraform.tfstate"
   #   dynamodb_table = "tester-dev-tfstate-locks"
   #   region         = "eu-west-1"
   #   encrypt        = true

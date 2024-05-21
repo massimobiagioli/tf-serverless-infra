@@ -1,5 +1,5 @@
-app_name     = "tester"
-stage        = "dev"
+app_name = "tester"
+stage    = "dev"
 
 aws_params = {
   region  = "eu-west-1"
