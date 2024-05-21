@@ -22,14 +22,14 @@ resource "aws_iam_role_policy" "codebuild_policy" {
   policy = data.aws_iam_policy_document.codebuild_policy.json
 }
 
-### CODEDEPLOY ###
-resource "aws_iam_role" "codedeploy_role" {
-  name               = "codedeploy_role_${local.pipeline_name}"
-  assume_role_policy = data.aws_iam_policy_document.codedeploy_assume_role.json
+### CODEDEBUILD DEPLOY ###
+resource "aws_iam_role" "codebuild_deploy_role" {
+  name               = "codebuild_deploy_role_${local.pipeline_name}"
+  assume_role_policy = data.aws_iam_policy_document.codebuild_deploy_assume_role.json
 }
 
-resource "aws_iam_role_policy" "codedeploy_policy" {
-  name   = "codedeploy_policy_${local.pipeline_name}"
-  role   = aws_iam_role.codedeploy_role.id
-  policy = data.aws_iam_policy_document.codedeploy_policy.json
+resource "aws_iam_role_policy" "codebuild_deploy_policy" {
+  name   = "codebuild_deploy_policy_${local.pipeline_name}"
+  role   = aws_iam_role.codebuild_deploy_role.id
+  policy = data.aws_iam_policy_document.codebuild_deploy_policy.json
 }

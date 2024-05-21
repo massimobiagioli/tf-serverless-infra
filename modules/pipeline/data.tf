@@ -111,8 +111,8 @@ data "local_file" "buildspec_local" {
   filename = var.build_template
 }
 
-### CODEDEPLOY ###
-data "aws_iam_policy_document" "codedeploy_assume_role" {
+### CODEBUILD DEPLOY ###
+data "aws_iam_policy_document" "codebuild_deploy_assume_role" {
   statement {
     effect = "Allow"
 
@@ -125,7 +125,7 @@ data "aws_iam_policy_document" "codedeploy_assume_role" {
   }
 }
 
-data "aws_iam_policy_document" "codedeploy_policy" {
+data "aws_iam_policy_document" "codebuild_deploy_policy" {
   statement {
     effect = "Allow"
 
