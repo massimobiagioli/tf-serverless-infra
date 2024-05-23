@@ -27,6 +27,23 @@ resource "aws_codepipeline" "codepipeline" {
   }
 
   stage {
+    name = "Test"
+
+    action {
+      name             = "Test"
+      category         = "Test"
+      owner            = "AWS"
+      provider         = "CodeBuild"
+      input_artifacts  = ["source_output"]      
+      version          = "1"
+
+      configuration = {
+        ProjectName = "${local.pipeline_name}-test"
+      }
+    }
+  }
+
+  stage {
     name = "Build"
 
     action {

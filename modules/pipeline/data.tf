@@ -111,6 +111,11 @@ data "local_file" "buildspec_local" {
   filename = var.build_template
 }
 
+### CODEBUILD TEST ###
+data "local_file" "testspec_local" {
+  filename = var.test_template
+}
+
 ### CODEBUILD DEPLOY ###
 data "aws_iam_policy_document" "codebuild_deploy_assume_role" {
   statement {
