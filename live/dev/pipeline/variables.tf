@@ -33,6 +33,11 @@ variable "build_template" {
   type        = string
 }
 
+variable "test_template" {
+  description = "Path to the testspec file"
+  type        = string
+}
+
 variable "deploy_template" {
   description = "Path to the deployspec file"
   type        = string

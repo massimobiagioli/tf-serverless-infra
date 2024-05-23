@@ -9,7 +9,7 @@ phases:
       nodejs: 18.x
     commands:
       - echo "Installing Serverless..."
-      - npm install -g serverless
+      - npm install -g serverless@3.38.0
       - npm ci
       - sudo yum -y install python-pip
       - pip install poetry

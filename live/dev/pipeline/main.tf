@@ -9,6 +9,7 @@ module "pipeline" {
   source_repository     = local.repository_name
   branch_name           = local.branch_name
   build_template        = var.build_template
+  test_template         = var.test_template
   deploy_template       = var.deploy_template
   tags                  = var.tags
 }
