@@ -12,7 +12,6 @@ github_repository = {
 
 build_template  = "./resources/buildspec.yml"
 test_template   = "./resources/testspec.yml"
-deploy_template = "./resources/deployspec.yml"
 
 tags = {
   Owner   = "owner"

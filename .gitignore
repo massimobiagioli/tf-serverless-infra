@@ -31,5 +31,4 @@ override.tf.json
 
 # Templates
 buildspec.yml.tpl
-deployspec.yml.tpl
 testspec.yml.tpl

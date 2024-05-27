@@ -38,11 +38,6 @@ variable "test_template" {
   type        = string
 }
 
-variable "deploy_template" {
-  description = "Path to the deployspec file"
-  type        = string
-}
-
 variable "tags" {
   type        = map(string)
   description = "Tags to apply to the pipeline"

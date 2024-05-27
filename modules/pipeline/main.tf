@@ -30,12 +30,12 @@ resource "aws_codepipeline" "codepipeline" {
     name = "Test"
 
     action {
-      name             = "Test"
-      category         = "Test"
-      owner            = "AWS"
-      provider         = "CodeBuild"
-      input_artifacts  = ["source_output"]      
-      version          = "1"
+      name            = "Test"
+      category        = "Test"
+      owner           = "AWS"
+      provider        = "CodeBuild"
+      input_artifacts = ["source_output"]
+      version         = "1"
 
       configuration = {
         ProjectName = "${local.pipeline_name}-test"
@@ -57,23 +57,6 @@ resource "aws_codepipeline" "codepipeline" {
 
       configuration = {
         ProjectName = "${local.pipeline_name}-build"
-      }
-    }
-  }
-
-  stage {
-    name = "Deploy"
-
-    action {
-      name            = "Deploy"
-      category        = "Build"
-      owner           = "AWS"
-      provider        = "CodeBuild"
-      input_artifacts = ["source_output"]
-      version         = 1
-
-      configuration = {
-        ProjectName = "${local.pipeline_name}-deploy"
       }
     }
   }
